@@ -78,6 +78,7 @@ namespace DwanascieKontrolek
             else
             {
                 timer.Stop();
+                enableSettingsControls();
                 clickMe.Text = "Reset";
                 highScoresTable.AppendText($"{score} points, " +
                     $"{clickCounter} clicks - {playerName}\n");
@@ -99,27 +100,12 @@ namespace DwanascieKontrolek
             clickMe.BackColor = Color.FromArgb(240, 240, 240);
         }
 
-        //Obsługa kliknięcia przycisku Accept/Change
-        private void btnAcceptPlayerName_Click(object sender, EventArgs e)
-        {
-            if (inputPlayerName.Enabled)
-            {
-                playerName = inputPlayerName.Text;
-                inputPlayerName.Enabled = false;
-                btnAcceptPlayerName.Text = "Change";
-            }
-            else
-            {
-                inputPlayerName.Enabled = true;
-                btnAcceptPlayerName.Text = "Accept";
-            }
-        }
         //Obsługa naciśnięcia klawisza Enter w polu textowym
         private void inputPlayerName_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                btnAcceptPlayerName_Click(sender, e);
+                playerName = inputPlayerName.Text;
             }
         }
 
@@ -166,15 +152,13 @@ namespace DwanascieKontrolek
         {
             if (clickMe.Text.Equals("Start"))
             {
-                if (playerName == null)
+                if (inputPlayerName.Text == null)
                 {
-                    MessageBox.Show("Please enter your name in Settings " +
-                        "and click Accept or hit Enter!", "No name entered!");
+                    MessageBox.Show("Please enter your name in Settings!");
                 }
-                else if (playerName.Equals(""))
+                else if (inputPlayerName.Text.Equals(""))
                 {
-                    MessageBox.Show("Please enter your name in Settings " +
-                        "and click Accept or hit Enter!", "No name entered!");
+                    MessageBox.Show("Please enter your name in Settings!");
                 }
                 else
                 {
@@ -206,9 +190,27 @@ namespace DwanascieKontrolek
         //Akcja przycisku startująca grę gdy imie gracza zostało wprowadzone
         private void startGame()
         {
-            timer.Start();
             clickMe.Text = "Click me!";
+            playerName = inputPlayerName.Text;
+            disableSettingsControls();
             changeClickMeLocation();
+            timer.Start();
+        }
+
+        private void disableSettingsControls()
+        {
+            inputPlayerName.Enabled = false;
+            trackBarClickMeSizeChange.Enabled = false;
+            radioBtnClickMeColorNormal.Enabled = false;
+            radioBtnClickMeColorYellow.Enabled = false;
+        }
+
+        private void enableSettingsControls()
+        {
+            inputPlayerName.Enabled = true;
+            trackBarClickMeSizeChange.Enabled = true;
+            radioBtnClickMeColorNormal.Enabled = true;
+            radioBtnClickMeColorYellow.Enabled = true;
         }
 
         //Zresetowanie parametrów gry do stanu początkowego

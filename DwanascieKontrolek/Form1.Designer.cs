@@ -37,7 +37,6 @@
             this.trackBarClickMeSizeChange = new System.Windows.Forms.TrackBar();
             this.gameArena = new System.Windows.Forms.GroupBox();
             this.settingsGroup = new System.Windows.Forms.GroupBox();
-            this.btnAcceptPlayerName = new System.Windows.Forms.Button();
             this.labelTypeYourName = new System.Windows.Forms.Label();
             this.labelClickMeColorChange = new System.Windows.Forms.Label();
             this.labelClickMeSizeChange = new System.Windows.Forms.Label();
@@ -87,7 +86,7 @@
             this.inputPlayerName.Location = new System.Drawing.Point(9, 32);
             this.inputPlayerName.MaxLength = 16;
             this.inputPlayerName.Name = "inputPlayerName";
-            this.inputPlayerName.Size = new System.Drawing.Size(90, 20);
+            this.inputPlayerName.Size = new System.Drawing.Size(182, 20);
             this.inputPlayerName.TabIndex = 4;
             this.inputPlayerName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inputPlayerName_KeyDown);
             // 
@@ -135,7 +134,6 @@
             // settingsGroup
             // 
             this.settingsGroup.Controls.Add(this.inputPlayerName);
-            this.settingsGroup.Controls.Add(this.btnAcceptPlayerName);
             this.settingsGroup.Controls.Add(this.labelTypeYourName);
             this.settingsGroup.Controls.Add(this.labelClickMeColorChange);
             this.settingsGroup.Controls.Add(this.labelClickMeSizeChange);
@@ -149,17 +147,6 @@
             this.settingsGroup.TabIndex = 12;
             this.settingsGroup.TabStop = false;
             this.settingsGroup.Text = "Settings";
-            // 
-            // btnAcceptPlayerName
-            // 
-            this.btnAcceptPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAcceptPlayerName.Location = new System.Drawing.Point(101, 32);
-            this.btnAcceptPlayerName.Name = "btnAcceptPlayerName";
-            this.btnAcceptPlayerName.Size = new System.Drawing.Size(90, 20);
-            this.btnAcceptPlayerName.TabIndex = 0;
-            this.btnAcceptPlayerName.Text = "Accept";
-            this.btnAcceptPlayerName.UseVisualStyleBackColor = true;
-            this.btnAcceptPlayerName.Click += new System.EventHandler(this.btnAcceptPlayerName_Click);
             // 
             // labelTypeYourName
             // 
@@ -301,7 +288,6 @@
         private System.Windows.Forms.GroupBox gameArena;
         private System.Windows.Forms.GroupBox settingsGroup;
         private System.Windows.Forms.GroupBox highScoresGroup;
-        private System.Windows.Forms.Button btnAcceptPlayerName;
         private System.Windows.Forms.Label labelClickMeColorChange;
         private System.Windows.Forms.Label labelClickMeSizeChange;
         private System.Windows.Forms.RadioButton radioBtnClickMeColorNormal;
